@@ -1,0 +1,67 @@
+/* 
+  FYPhotoPicker.strings
+  Pods
+
+  Created by omarshamali on 2022/10/1.
+  
+*/
+
+"add" = "أضف";
+"Confirm" = "تأكيد";
+
+"AccessPhotosFailed" = "مشكلة في الدخول الى صور الالبوم";
+"AccessPhotosFailedMessage" = "يجب السماح للتطبيق بالدخول الى الصور، يمكنك فعل ذلك من خلال اعدادات الهاتف";
+"GoToSettings" = "اذهب الى الاعدادات";
+
+
+"AllPhotos" = "اخر الاضافات";
+"Smart Albums" = "الالبومات الذكية";
+"User Albums" = "البومات المستخدم";
+
+"hour" = "ساعة";
+
+"Cancel" = "رجوع";
+"Save" = "حفظ";
+
+"Photo" = "صورة";
+"Camera" = "كاميرا";
+"Front/Rear" = "امامية\خلفية";
+
+"AccessPhotoLibraryTitle" = "اذن الدخول الى الصور";
+"SelectMorePhotos" = "اختر صور اضافية..";
+"KeepCurrent" = "حاظ على المُختار حالياً";
+
+"VideoDurationTooLong" = "تم اختيار فيديو اطول من المدة المسموحة";
+"VideoMemoryOutOfSize" = "حجم الفيديو اكبر من الحجم المسموح به";
+"UnspportedVideoFormat" = "فيديو غير مدعوم من التطبيق";
+
+"WithoutCameraPermission" = "لا يوجد اذن بالدخول الى الكاميرا، الرجاء السماح من خلال الاعدادات";
+
+"OK" = "تم";
+"Settings" = "الإعدادات";
+
+"CameraConfigurationFailed" = "فشل في الحفظ";
+
+"NoPermissionToSave" = "لا يوجد اذن بالحفظ";
+
+"Preview" = "معاينة";
+
+"SavePhoto" = "حفظ الصورة";
+"SaveVideo" = "حفظ الفيديو";
+
+"FailedToSaveMedia" = "فشل الحفظ";
+"SuccessfullySavedMedia" = "تم الحفظ بنجاح";
+
+"GotIt" = "تم";
+
+"Resume" = "أكمل";
+"Unable to resume" = "فشل الإكمال";
+
+"NoVideo" = "الرابط ليس فيديو";
+
+// PhotoEdit
+"Orinial" = "أصلي";
+"Square" = "مربع";
+"ResetPhoto" = "اعادة ضبط";
+"DiscardChanges" = "رجوع";
+"CropPhoto" = "قص";
