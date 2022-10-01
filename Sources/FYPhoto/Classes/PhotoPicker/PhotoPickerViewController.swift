@@ -37,6 +37,9 @@ public final class PhotoPickerViewController: UIViewController, UICollectionView
     // call back for photo, video selections
     public var selectedPhotos: (([SelectedImage]) -> Void)?
     public var selectedVideo: ((Result<SelectedVideo, Error>) -> Void)?
+    //#! here
+    public var assetsCount: ((Int) -> Void)?
+    
 
     var allPhotos: PHFetchResult<PHAsset> = PHFetchResult()
     var smartAlbums: [PHAssetCollection] = []
@@ -284,7 +287,9 @@ public final class PhotoPickerViewController: UIViewController, UICollectionView
             self.back(animated: true)
         }
         let cancel = UIAlertAction(title: L10n.cancel, style: .cancel) { _ in
+            
             if !self.containsCamera {
+                
                 self.back(animated: true)
             }
         }
@@ -293,6 +298,7 @@ public final class PhotoPickerViewController: UIViewController, UICollectionView
         self.present(alert, animated: true, completion: {
             self.isAuthorityErrorAlerted = true
         })
+
     }
 
     func calculateThumbnailSize() -> CGSize {
@@ -311,6 +317,8 @@ public final class PhotoPickerViewController: UIViewController, UICollectionView
     func setupNavigationBar() {
         // custom titleview
         topBar.dismiss = { [weak self] in
+            //#! here
+            self?.assetsCount?(self?.selectedAssets.count ?? 0)
             self?.back(animated: true)
         }
         topBar.albulmTitleTapped = { [weak self] in
@@ -729,7 +737,7 @@ public final class PhotoPickerViewController: UIViewController, UICollectionView
     }
 
     fileprivate func compressVideo(url: URL, asset: PHAsset, completion: @escaping ((Result<URL, Error>) -> Void)) {
-        FYVideoCompressor().compressVideo(url, quality: compressedQuality) { (result) in
+        FYVideoCompressor.shared.compressVideo(url, quality: compressedQuality) { (result) in
             switch result {
             case .success(let url):
                 completion(.success(url))
@@ -1012,9 +1020,14 @@ extension PhotoPickerViewController: PhotoPickerBottomToolViewDelegate {
                 if editedPhotos.keys.contains(asset.localIdentifier) {
                     photo.restoreData = editedPhotos[asset.localIdentifier]
                 }
+                
                 return photo
             }
         }
+        //#! here
+        self.assetsCount?(self.selectedAssets.count)
+        
+        
         completeSelection(photos: photos, animated: true)
     }
 }
@@ -1029,5 +1042,7 @@ extension PhotoPickerViewController: VideoTrimmerViewControllerDelegate {
             self.selectedVideo?(.success(SelectedVideo(url: url)))
         }
     }
+    
+    
 
 }
